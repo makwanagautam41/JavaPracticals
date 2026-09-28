@@ -27,24 +27,22 @@ public class Practical6 {
             Statement stmt = con.createStatement();
             
             // SQL Query
-            String query = "SELECT * FROM employee";
+            String query = "SELECT * FROM Student";
             
             // Execute Query
             ResultSet rs = stmt.executeQuery(query);
             
             // Display Table Header
             System.out.println("----------------------------------------------");
-            System.out.println("Id\tName\tEmail\tDepartment\tSalary");
+            System.out.println("RollNo\t\tName\t\tAddress");
             System.out.println("----------------------------------------------");
             
             // Display Record
             while(rs.next()){
                 System.out.println(
-                rs.getInt("id")+"\t"
-                +rs.getString("name")+"\t"
-                +rs.getString("email")+"\t"
-                +rs.getString("department")+"\t"
-                +rs.getInt("salary"));
+                rs.getInt("RollNo")+"\t"
+                +rs.getString("Name")+"\t"
+                +rs.getString("Address"));
             }
             System.out.println("----------------------------------------------");
             

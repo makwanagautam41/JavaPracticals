@@ -27,29 +27,26 @@ public class Practical5 {
             Statement stmt = con.createStatement();
             
             // SQL Query
-            String query = "SELECT * FROM employee";
+            String query = "CREATE TABLE Student("
+                    + "RollNo INT PRIMARY KEY,"
+                    + "Name VARCHAR(50),"
+                    + "Address VARCHAR(100))";
             
             // Execute Query
-            ResultSet rs = stmt.executeQuery(query);
+            stmt.executeUpdate(query);
+            System.out.println("Student Table Created Successfully...");
             
-            // Display Table Header
-            System.out.println("----------------------------------------------");
-            System.out.println("Id\tName\tEmail\tDepartment\tSalary");
-            System.out.println("----------------------------------------------");
+            // Insert Records
+            stmt.executeUpdate("INSERT INTO Student VALUES (101, 'Rahul Sharma','Ahmedabad')");
+            stmt.executeUpdate("INSERT INTO Student VALUES (102, 'Priya Patel','Surat')");
+            stmt.executeUpdate("INSERT INTO Student VALUES (103, 'Amit Kumar','Vadodra')");
+            stmt.executeUpdate("INSERT INTO Student VALUES (104, 'Sneha Shah','Rajkot')");
+            stmt.executeUpdate("INSERT INTO Student VALUES (105, 'Karan Mehta','Gandhinagar')");
             
-            // Display Record
-            while(rs.next()){
-                System.out.println(
-                rs.getInt("id")+"\t"
-                +rs.getString("name")+"\t"
-                +rs.getString("email")+"\t"
-                +rs.getString("department")+"\t"
-                +rs.getInt("salary"));
-            }
-            System.out.println("----------------------------------------------");
-            
+            // Record Inserted Successfully
+            System.out.println("Records Inserted Successfully...");
+                        
             // Close Resources
-            rs.close();
             stmt.close();
             con.close();
         }catch(Exception e){
